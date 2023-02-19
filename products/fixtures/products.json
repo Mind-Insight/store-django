@@ -1,0 +1,62 @@
+[
+  {
+    "model": "products.products",
+    "pk": 1,
+    "fields": {
+      "name": "Худи черного цвета с монограммами Adidas Originals",
+      "description": "Мягкая ткань для свитшотов. Стиль и комфорт - это образ жизни.",
+      "price": "6090.00",
+      "quantity": 10,
+      "image": "products_images/Adidas-hoodie.png",
+      "category": 1
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 2,
+    "fields": {
+      "name": "Синяя куртка The North Face",
+      "description": "Гладкая ткань. Водонепроницаемое покрытие. Легкий и теплый пуховый наполнитель.",
+      "price": "25725.00",
+      "quantity": 10,
+      "image": "products_images/Blue-jacket-The-North-Face.png",
+      "category": 1
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 3,
+    "fields": {
+      "name": "Коричневый спортивный oversized-топ ASOS DESIGN",
+      "description": "Материал с плюшевой текстурой. Удобный и мягкий.",
+      "price": "3390.00",
+      "quantity": 10,
+      "image": "products_images/Brown-sports-oversized-top-ASOS-DESIGN.png",
+      "category": 1
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 4,
+    "fields": {
+      "name": "Черный рюкзак Nike Heritage",
+      "description": "Плотная ткань. Легкий материал.",
+      "price": "2340.00",
+      "quantity": 10,
+      "image": "products_images/Black-Nike-Heritage-backpack.png",
+      "category": 1
+    }
+  },
+  {
+    "model": "products.products",
+    "pk": 5,
+    "fields": {
+      "name": "Туфли Black Dr Martens",
+      "description": "Стильные туфли с черной окраской.",
+      "price": "7825.00",
+      "quantity": 10,
+      "image": "products_images/Black-Dr-Martens-shoes.png",
+      "category": 2
+    }
+  }
+]
