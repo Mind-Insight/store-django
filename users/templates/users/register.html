@@ -6,8 +6,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-7">
                         <div class="alert alert-warning alert-dismissible fade show" role="alert"
-                             style="margin-top: 50px;">
-                            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                             style="...">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -16,52 +15,43 @@
                             <div class="card-header"><h3 class="text-center font-weight-light my-4">Создать аккаунт</h3>
                             </div>
                             <div class="card-body">
-                                <form>
+                                <form action="{% url 'users:registration' %}" method="post">
+                                    {% csrf_token %}
                                     <div class="form-row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="small mb-1" for="inputFirstName">Имя</label>
-                                                <input class="form-control py-4" id="inputFirstName" type="text"
-                                                       placeholder="Введите имя"/>
+                                                <label class="small mb-1" for="{{ form.first_name.id_for_label }}">Имя</label>
+                                                {{ form.first_name }}
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="small mb-1" for="inputLastName">Фамилия</label>
-                                                <input class="form-control py-4" id="inputLastName" type="text"
-                                                       placeholder="Введите фамилию"/>
+                                                <label class="small mb-1" for="{{ form.last_name.id_for_label }}">Фамилия</label>
+                                                {{ form.last_name }}
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="col-md-6">
-                                            <label class="small mb-1" for="inputUsername">Имя пользователя</label>
-                                            <input class="form-control py-4" id="inputUsername" type="text"
-                                                   aria-describedby="usernameHelp"
-                                                   placeholder="Введите имя пользователя"/>
+                                            <label class="small mb-1" for="{{ form.username.id_for_label }}">Имя пользователя</label>
+                                            {{ form.username }}
                                         </div>
                                         <div class="col-md-6">
-                                            <label class="small mb-1" for="inputEmailAddress">Адрес электронной
-                                                почты</label>
-                                            <input class="form-control py-4" id="inputEmailAddress" type="email"
-                                                   aria-describedby="emailHelp"
-                                                   placeholder="Введите адрес эл. почты"/>
+                                            <label class="small mb-1" for="{{ form.email.id_for_label }}">Адрес электронной почты</label>
+                                            {{ form.email }}
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="small mb-1" for="inputPassword">Пароль</label>
-                                                <input class="form-control py-4" id="inputPassword" type="password"
-                                                       placeholder="Введите пароль"/>
+                                                <label class="small mb-1" for="{{ form.password1.id_for_label }}">Пароль</label>
+                                                {{ form.password1 }}
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="small mb-1" for="inputConfirmPassword">Подтверждение
-                                                    пароля</label>
-                                                <input class="form-control py-4" id="inputConfirmPassword"
-                                                       type="password" placeholder="Подтвердите пароль"/>
+                                                <label class="small mb-1" for="{{ form.password2.id_for_label }}">Подтверждение пароля</label>
+                                                {{ form.password2 }}
                                             </div>
                                         </div>
                                     </div>

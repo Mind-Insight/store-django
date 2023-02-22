@@ -4,7 +4,7 @@ from django.urls import reverse
 
 
 from users.models import User
-from users.forms import UserLoginForm
+from users.forms import UserLoginForm, UserRegistationForm
 
 def login(request):
     # Авторизция пользователя
@@ -33,4 +33,6 @@ def login(request):
     return render(request, 'users/login.html', context)
 
 def register(request):
-    return render(request, 'users/register.html')
+    form = UserRegistationForm()
+    context = {'form': form}
+    return render(request, 'users/register.html', context)
