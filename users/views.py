@@ -56,3 +56,8 @@ def profile(request):
     context = {'title': 'Store - Профиль', 'form': form}
 
     return render(request, 'users/profile.html', context)
+
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('index'))
