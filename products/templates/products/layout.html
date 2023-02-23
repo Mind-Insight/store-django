@@ -33,30 +33,38 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'products:index' %}">Каталог <i class="fas fa-shopping-bag"></i> </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'users:login' %}">Войти <i class="fas fa-sign-in-alt"></i></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-user-circle"></i>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li>
-                            <a class="dropdown-item" href="{% url 'users:profile' %}">Профиль</a>
-                        </li>
-                        <li><a class="dropdown-item" href="orders/orders.html">Заказы</a></li>
-                        <li><a class="dropdown-item" href="#">Админ-панель</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                Выйти
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+
+                {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-circle"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="{% url 'users:profile' %}">Профиль</a>
+                            </li>
+                            <li><a class="dropdown-item" href="orders/orders.html">Заказы</a></li>
+                            {% if user.is_superuser %}
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'admin:index' %}">Админ-панель</a>
+                                </li>
+                            {% endif %}
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'users:logout' %}">
+                                    Выйти
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'users:login' %}">Войти <i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>
