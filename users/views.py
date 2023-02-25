@@ -3,6 +3,7 @@ from django.contrib import auth, messages
 from django.urls import reverse
 
 from users.forms import UserLoginForm, UserRegistationForm, UserProfileForm
+from products.models import Cart
 
 def login(request):
     # Авторизция пользователя
@@ -53,7 +54,11 @@ def profile(request):
             return HttpResponseRedirect(reverse('users:profile'))
 
     form = UserProfileForm(instance=request.user)
-    context = {'title': 'Store - Профиль', 'form': form}
+    context = {
+        'title': 'Store - Профиль',
+        'form': form,
+        'baskets': Cart.objects.all()
+    }
 
     return render(request, 'users/profile.html', context)
 
