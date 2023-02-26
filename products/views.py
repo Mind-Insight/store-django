@@ -33,5 +33,5 @@ def cart_add(request, product_id):
 
 def basket_remove(request, basket_id):
     basket = Cart.objects.get(id=basket_id)
-    basket.remove()
-    return HttpResponseRedirect(request.META(['HTTP_REFERER']))
+    basket.delete()
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])

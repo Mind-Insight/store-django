@@ -5,6 +5,7 @@ from django.urls import reverse
 from users.forms import UserLoginForm, UserRegistationForm, UserProfileForm
 from products.models import Cart
 
+
 def login(request):
     # Авторизция пользователя
     if request.method == 'POST':
@@ -31,6 +32,7 @@ def login(request):
         form = UserLoginForm()
     context = {'form': form}
     return render(request, 'users/login.html', context)
+
 
 def register(request):
     if request.method == 'POST':
