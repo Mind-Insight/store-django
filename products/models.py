@@ -29,4 +29,4 @@ class Cart(models.Model):
     created_timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Cart for {self.user.email} | Product {self.product.name}"
+        return f"Cart for {self.user.username} | Product {self.product.name}"
